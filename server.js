@@ -96,7 +96,7 @@ app.post("/send", async (req, res) => {
     res.status(200).send("Massage send Succesfully");
   } catch (err) {
     console.error("Error:", err);
-    res.status(500).send("Error sending email ❌");
+    res.status(500).send("Error sending email ");
   }
 });
 
