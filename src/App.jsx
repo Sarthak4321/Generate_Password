@@ -51,6 +51,31 @@ function App() {
           />
         </div>
 
+
+        <div className="flex justify-end">
+          <span
+            className="font-bold text-[8px] opacity-75 bg-gradient-to-r from-blue-500 via-black to-pink-500 bg-[length:200%_auto] bg-clip-text text-transparent animate-[shine_3s_linear_infinite]"
+            style={{
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+              backgroundSize: '200% auto',
+              animation: 'shine 2.47s linear infinite',
+            }}
+          >
+            CONNECTING WITH SATELLITE
+          </span>
+
+          <style>{`
+    @keyframes shine {
+      0% { background-position: 200% center; }
+      100% { background-position: 0% center; }
+    }
+  `}</style>
+        </div>
+
+
+
         <div className="flex-col justify-center align-middle mt-24">
           <div className="inline-block w-full  ">
             <h1 className="text-white  text-4xl font-bold ">Password Generator</h1>
