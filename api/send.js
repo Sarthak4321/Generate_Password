@@ -8,11 +8,11 @@ export default async function handler(req, res) {
   const { email, password } = req.body;
 
   if (!email || !password) {
-    return res.status(400).json({ message: "Missing fields" });
+    return res.status(400).json({ message: "Missing email or password" });
   }
 
   try {
-    const transporter = nodemailer.createTransport({
+    const transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: process.env.EMAIL,
@@ -20,16 +20,16 @@ export default async function handler(req, res) {
       },
     });
 
-    await transporter.sendMail({
+    await transport.sendMail({
       from: `"Password Generator" <${process.env.EMAIL}>`,
       to: email,
-      subject: "Your Generated Password",
-      html: `<h2>Your password:</h2><p>${password}</p>`,
+      subject: "🎉 Your Generated Password",
+      html: `<h2>Your generated password:</h2><p><b>${password}</b></p>`,
     });
 
     return res.status(200).json({ message: "Email sent successfully" });
-  } catch (error) {
-    console.error("Email error:", error);
-    return res.status(500).json({ message: "Email failed", error: error.message });
+  } catch (err) {
+    console.error("Email error:", err);
+    return res.status(500).json({ message: "Email failed", error: err.message });
   }
 }
