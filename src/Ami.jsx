@@ -153,8 +153,8 @@ export default function PopupPage({ isOpen, onClose, password }) {
         body: JSON.stringify({ email, password }),
       });
 
-      // const data = await response.json();
-      // response.handleSend("SuccessPopup")
+      const data = await response.json();
+      console.log("✅ Response:", data);
       if (response.ok) {
         setShowPopup(true); // show success popup when email sent successfully
       } else {
