@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import SuccessPopup from "./SuccessPopup";
+import SuccessPopup from "./SuccessPopup";  
 
 export default function PopupPage({ isOpen, onClose, password }) {
   const [email, setEmail] = useState("");
@@ -79,7 +79,10 @@ export default function PopupPage({ isOpen, onClose, password }) {
               </button>
 
               <button
-                onClick={onClose}
+                onClick={() => {
+                  onClose();
+                  setPassWord("");
+                }}
                 className="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-xl"
               >
                 Close
