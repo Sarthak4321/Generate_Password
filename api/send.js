@@ -28,7 +28,7 @@ export default async function handler(req, res) {
       html: `<h2>Your generated password:</h2><p><b>${password}</b></p>`,
     });
 
-    return res.render("/src/SuccessPopup");
+    return res.status(200).json({ message: "Email sent successfully" });
   } catch (err) {
     console.error("Email error:", err);
     return res.status(500).json({ message: "Email failed", error: err.message });
