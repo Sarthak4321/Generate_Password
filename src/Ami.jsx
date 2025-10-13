@@ -58,7 +58,7 @@ export default function PopupPage({ isOpen, onClose, password }) {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full p-3 border rounded-xl mb-4 bg-gray-100 text-gray-900"
+                className="w-full p-3 border rounded-xl mb-4 bg-gray-100 font-bold text-gray-900"
               />
 
               <motion.p
