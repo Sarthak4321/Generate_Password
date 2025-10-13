@@ -12,6 +12,11 @@ export default async function handler(req, res) {
   }
 
   try {
+    // Check if env vars exist
+    if (!process.env.EMAIL || !process.env.PASS) {
+      throw new Error("Missing EMAIL or PASS environment variables");
+    }
+
     const transport = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -30,6 +35,9 @@ export default async function handler(req, res) {
     return res.status(200).json({ message: "Email sent successfully" });
   } catch (err) {
     console.error("Email error:", err);
-    return res.status(500).json({ message: "Email failed", error: err.message });
+    return res.status(500).json({
+      message: "Email failed",
+      error: err.message,
+    });
   }
 }
