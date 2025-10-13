@@ -1,5 +1,4 @@
 import nodemailer from "nodemailer";
-import SuccessPopup from "./SuccessPopup";
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
