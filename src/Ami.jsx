@@ -22,7 +22,7 @@ export default function PopupPage({ isOpen, onClose, password }) {
       const data = await response.json();
       console.log("✅ Response:", data);
       if (response.ok) {
-        setShowPopup(true); // show success popup when email sent successfully
+        setShowSuccess(true); // show success popup when email sent successfully
         setEmail("");
       } else {
         alert("❌ Failed to send email. Please try again.");
